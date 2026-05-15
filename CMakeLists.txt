@@ -23,3 +23,9 @@ target_link_libraries(tape_sort_lib PUBLIC Threads::Threads)
 
 add_executable(tape_sort main.cpp)
 target_link_libraries(tape_sort PRIVATE tape_sort_lib)
+
+enable_testing()
+add_executable(tape_sort_tests mainTest.cpp)
+target_link_libraries(tape_sort_tests PRIVATE tape_sort_lib)
+target_include_directories(tape_sort_tests PRIVATE tests)
+add_test(NAME unit_tests COMMAND tape_sort_tests)
